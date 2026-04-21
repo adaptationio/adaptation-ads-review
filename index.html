@@ -67,6 +67,21 @@
     color: #0F172A; padding: 4px 10px; border-radius: 14px;
     font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em;
   }
+  .card .batch-badge {
+    position: absolute; top: 42px; left: 10px; z-index:2;
+    background: rgba(255,112,0,0.15); color: #FF7000; padding: 2px 8px; border-radius: 10px;
+    font-size: 10px; font-weight: 800; letter-spacing: 0.05em;
+  }
+  .filter-bar {
+    margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+  }
+  .filter-bar button {
+    background: #1E293B; border: 1px solid #334155; color: #F1F5F9;
+    padding: 8px 16px; border-radius: 6px; font-size: 13px; cursor: pointer;
+    font-weight: 600;
+  }
+  .filter-bar button.active { background: #FF7000; border-color: #FF7000; color: #0F172A; }
+  .filter-bar button:hover:not(.active) { border-color: #FF7000; }
   .card .ad-img {
     width: 100%; aspect-ratio: 1/1; object-fit: cover; cursor: zoom-in;
     background: #000; display:block;
@@ -115,7 +130,7 @@
   <main>
     <header class='hero'>
       <h1>LinkedIn Ad Variants — Paul's Brief</h1>
-      <div class='meta'>Generated 2026-04-21 13:40:44 · 18 variants · 3 iteration batches · scored by Claude Sonnet 4.6 + GPT-4o (Gemini retry needed)</div>
+      <div class='meta'>Generated 2026-04-21 14:04:58 · 36 variants across 2 batches · scored by Claude Sonnet 4.6 + GPT-4o</div>
       <div class='hero-grid'>
         <div>
           <div class='summary'>
@@ -138,18 +153,26 @@
 
     <section class='summary-panel'>
       <div class='stat'><div class='k'>Total variants</div><div class='v'>18</div></div>
-      <div class='stat'><div class='k'>Ship-tier (&ge;8.0)</div><div class='v'>8</div></div>
+      <div class='stat'><div class='k'>Ship-tier (&ge;8.0)</div><div class='v'>15</div></div>
       <div class='stat'><div class='k'>Top score (conservative)</div><div class='v'>8.88</div></div>
       <div class='stat'><div class='k'>Models used</div><div class='v'>2</div></div>
     </section>
 
     <section>
-      <h2>All variants (ranked conservative weighted)</h2>
-      <div class='grid'>
+      <h2>All variants (ranked conservative weighted · 2 batches)</h2>
+      <div class='filter-bar'>
+        <span style='color:#A8B8CC;font-size:13px'>Filter:</span>
+        <button class='filter-btn active' data-filter='all'>All 36</button>
+        <button class='filter-btn' data-filter='A'>Batch-A · Paul-ref direction (18)</button>
+        <button class='filter-btn' data-filter='B'>Batch-B · Fresh eyes (18)</button>
+        <button class='filter-btn' data-filter='top'>Top 10 only</button>
+      </div>
+      <div class='grid' id='variant-grid'>
         
-    <article class="card" data-rank="1" data-score="8.875">
+    <article class="card" data-rank="1" data-score="8.875" data-batch="A">
       <div class="rank-badge">#1</div>
       <div class="tier-badge" style="background:#14B8A6">Ship</div>
+      <div class="batch-badge">A</div>
       <img class="ad-img" src="variants/v13-still-waiting.png" alt="Still waiting (IT bypass without attack)" onclick="zoom(this)">
       <div class="card-body">
         <h3 class="card-title">Still waiting (IT bypass without attack)</h3>
@@ -212,9 +235,142 @@
         <p class="notes">Names the AI-stuckness pain every leader feels WITHOUT attacking IT. 14 days answers 'how fast'. Free answers 'how much'. Question form invites click.</p>
       </div>
     </article>
-    <article class="card" data-rank="2" data-score="8.4">
+    <article class="card" data-rank="2" data-score="8.5" data-batch="B">
       <div class="rank-badge">#2</div>
+      <div class="tier-badge" style="background:#14B8A6">Ship</div>
+      <div class="batch-badge">B</div>
+      <img class="ad-img" src="variants/v26-paying-for-ai.png" alt="Question: Paying for AI that doesn't ship?" onclick="zoom(this)">
+      <div class="card-body">
+        <h3 class="card-title">Question: Paying for AI that doesn't ship?</h3>
+        <p class="card-copy"><span class="main-copy">"Question: Paying for AI that doesn't ship?"</span> <span class="accent-copy" style="color:#FF7000"></span></p>
+        <div class="scores-row">
+          <div class="score-big">
+            <span class="score-val">8.50</span>
+            <span class="score-lbl">Conservative</span>
+          </div>
+          <div class="score-big">
+            <span class="score-val">8.70</span>
+            <span class="score-lbl">Average</span>
+          </div>
+        </div>
+        <div class="metrics-list">
+        <div class="metric">
+          <div class="metric-label">Readability @ 2s</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:85%;background:#14B8A6"></div></div>
+          <div class="metric-val">8.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Message clarity</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:80%;background:#14B8A6"></div></div>
+          <div class="metric-val">8.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Tone</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:95%;background:#14B8A6"></div></div>
+          <div class="metric-val">9.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Brand</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:100%;background:#14B8A6"></div></div>
+          <div class="metric-val">10.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Audience fit</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:85%;background:#14B8A6"></div></div>
+          <div class="metric-val">8.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Click impulse</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:85%;background:#14B8A6"></div></div>
+          <div class="metric-val">8.5</div>
+        </div></div>
+        <details class="model-details">
+          <summary>Per-model rationales</summary>
+          
+        <div class="model-row">
+          <div class="model-name">CLAUDE</div>
+          <div class="model-score">8.30</div>
+          <div class="model-rationale">Strongest metrics are brand adherence (perfect billboard execution with proper color palette and layout) and audience fit (directly targets the pain point of IT delivery failure with provocative framing). Weakest is message clarity — while the pain is crystal clear, 'Ours does. Free.' requires cognitive work to connect</div>
+        </div>
+        <div class="model-row">
+          <div class="model-name">GPT</div>
+          <div class="model-score">9.10</div>
+          <div class="model-rationale">The ad excels in tone alignment and brand adherence, perfectly fitting the brief's requirements with a clean and direct billboard style. The clarity and impulsive call to action are strong, though audience fit could be slightly more targeted to specific pain points of IT teams not delivering AI.</div>
+        </div>
+        </details>
+        <p class="notes">Direct call-out of wasted AI spend. Answers with 'ours does' + 'free'. Two attack angles in one ad.</p>
+      </div>
+    </article>
+    <article class="card" data-rank="3" data-score="8.475" data-batch="B">
+      <div class="rank-badge">#3</div>
       <div class="tier-badge" style="background:#F59E0B">Ship with note</div>
+      <div class="batch-badge">B</div>
+      <img class="ad-img" src="variants/v25-got-14-days.png" alt="Question: Got 14 days?" onclick="zoom(this)">
+      <div class="card-body">
+        <h3 class="card-title">Question: Got 14 days?</h3>
+        <p class="card-copy"><span class="main-copy">"Question: Got 14 days?"</span> <span class="accent-copy" style="color:#FF7000"></span></p>
+        <div class="scores-row">
+          <div class="score-big">
+            <span class="score-val">8.47</span>
+            <span class="score-lbl">Conservative</span>
+          </div>
+          <div class="score-big">
+            <span class="score-val">8.78</span>
+            <span class="score-lbl">Average</span>
+          </div>
+        </div>
+        <div class="metrics-list">
+        <div class="metric">
+          <div class="metric-label">Readability @ 2s</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:90%;background:#F59E0B"></div></div>
+          <div class="metric-val">9.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Message clarity</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:95%;background:#F59E0B"></div></div>
+          <div class="metric-val">9.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Tone</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:95%;background:#F59E0B"></div></div>
+          <div class="metric-val">9.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Brand</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:95%;background:#F59E0B"></div></div>
+          <div class="metric-val">9.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Audience fit</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:70%;background:#F59E0B"></div></div>
+          <div class="metric-val">7.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Click impulse</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:80%;background:#F59E0B"></div></div>
+          <div class="metric-val">8.0</div>
+        </div></div>
+        <details class="model-details">
+          <summary>Per-model rationales</summary>
+          
+        <div class="model-row">
+          <div class="model-name">CLAUDE</div>
+          <div class="model-score">8.50</div>
+          <div class="model-rationale">Strongest metrics are tone alignment and brand adherence—this is textbook billboard execution with perfect visual hierarchy and zero hedging. Weakest is audience fit: 'Got 14 days?' doesn't connect to the core insight that leaders distrust their IT team's AI capability; it's time-focused rather than pain-focused, missi</div>
+        </div>
+        <div class="model-row">
+          <div class="model-name">GPT</div>
+          <div class="model-score">9.05</div>
+          <div class="model-rationale">The strongest metric is message clarity, as the offer is incredibly clear and direct. The weakest is audience fit, as while relevant, the ad could more specifically address the skepticism of the target audience.</div>
+        </div>
+        </details>
+        <p class="notes">Two-beat question+answer. Qualifies the reader ('do I have 14 days?') before paying off.</p>
+      </div>
+    </article>
+    <article class="card" data-rank="4" data-score="8.4" data-batch="A">
+      <div class="rank-badge">#4</div>
+      <div class="tier-badge" style="background:#F59E0B">Ship with note</div>
+      <div class="batch-badge">A</div>
       <img class="ad-img" src="variants/v04-timeline.png" alt="14-day emphasis" onclick="zoom(this)">
       <div class="card-body">
         <h3 class="card-title">14-day emphasis</h3>
@@ -277,9 +433,10 @@
         <p class="notes">Timeline + free combo — answers 'how fast' objection.</p>
       </div>
     </article>
-    <article class="card" data-rank="3" data-score="8.4">
-      <div class="rank-badge">#3</div>
+    <article class="card" data-rank="5" data-score="8.4" data-batch="A">
+      <div class="rank-badge">#5</div>
       <div class="tier-badge" style="background:#F59E0B">Ship with note</div>
+      <div class="batch-badge">A</div>
       <img class="ad-img" src="variants/v05-scarcity.png" alt="10-slot scarcity" onclick="zoom(this)">
       <div class="card-body">
         <h3 class="card-title">10-slot scarcity</h3>
@@ -342,9 +499,142 @@
         <p class="notes">Scarcity frame — matches Paul's post copy.</p>
       </div>
     </article>
-    <article class="card" data-rank="4" data-score="8.325">
-      <div class="rank-badge">#4</div>
+    <article class="card" data-rank="6" data-score="8.4" data-batch="B">
+      <div class="rank-badge">#6</div>
       <div class="tier-badge" style="background:#F59E0B">Ship with note</div>
+      <div class="batch-badge">B</div>
+      <img class="ad-img" src="variants/v19-hero-14.png" alt="Hero number: 14" onclick="zoom(this)">
+      <div class="card-body">
+        <h3 class="card-title">Hero number: 14</h3>
+        <p class="card-copy"><span class="main-copy">"Hero number: 14"</span> <span class="accent-copy" style="color:#FF7000"></span></p>
+        <div class="scores-row">
+          <div class="score-big">
+            <span class="score-val">8.40</span>
+            <span class="score-lbl">Conservative</span>
+          </div>
+          <div class="score-big">
+            <span class="score-val">8.55</span>
+            <span class="score-lbl">Average</span>
+          </div>
+        </div>
+        <div class="metrics-list">
+        <div class="metric">
+          <div class="metric-label">Readability @ 2s</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:90%;background:#F59E0B"></div></div>
+          <div class="metric-val">9.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Message clarity</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:85%;background:#F59E0B"></div></div>
+          <div class="metric-val">8.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Tone</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:95%;background:#F59E0B"></div></div>
+          <div class="metric-val">9.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Brand</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:100%;background:#F59E0B"></div></div>
+          <div class="metric-val">10.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Audience fit</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:70%;background:#F59E0B"></div></div>
+          <div class="metric-val">7.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Click impulse</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:75%;background:#F59E0B"></div></div>
+          <div class="metric-val">7.5</div>
+        </div></div>
+        <details class="model-details">
+          <summary>Per-model rationales</summary>
+          
+        <div class="model-row">
+          <div class="model-name">CLAUDE</div>
+          <div class="model-score">8.15</div>
+          <div class="model-rationale">Brand adherence and readability are exceptional — the massive orange '14' creates instant visual impact with perfect color/contrast execution. Audience fit is the weakest element; while the speed promise addresses the brief's insight indirectly, it doesn't explicitly call out the IT bottleneck pain point or speak to th</div>
+        </div>
+        <div class="model-row">
+          <div class="model-name">GPT</div>
+          <div class="model-score">8.95</div>
+          <div class="model-rationale">The strongest metrics are tone alignment and brand adherence, both scoring 10 due to the clear and direct messaging and perfect match with the brand aesthetic in terms of color scheme and layout. The weakest is audience fit at 8, as while the message is engaging, it could be more tailored to address the specific needs </div>
+        </div>
+        </details>
+        <p class="notes">Single massive number owns the frame. '14' triggers curiosity-then-context. Phone-scannable at arm's length. Gate check: does the subtitle line pay off the number?</p>
+      </div>
+    </article>
+    <article class="card" data-rank="7" data-score="8.4" data-batch="B">
+      <div class="rank-badge">#7</div>
+      <div class="tier-badge" style="background:#F59E0B">Ship with note</div>
+      <div class="batch-badge">B</div>
+      <img class="ad-img" src="variants/v21-hero-ten.png" alt="Hero number: 10" onclick="zoom(this)">
+      <div class="card-body">
+        <h3 class="card-title">Hero number: 10</h3>
+        <p class="card-copy"><span class="main-copy">"Hero number: 10"</span> <span class="accent-copy" style="color:#FF7000"></span></p>
+        <div class="scores-row">
+          <div class="score-big">
+            <span class="score-val">8.40</span>
+            <span class="score-lbl">Conservative</span>
+          </div>
+          <div class="score-big">
+            <span class="score-val">8.40</span>
+            <span class="score-lbl">Average</span>
+          </div>
+        </div>
+        <div class="metrics-list">
+        <div class="metric">
+          <div class="metric-label">Readability @ 2s</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:90%;background:#F59E0B"></div></div>
+          <div class="metric-val">9.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Message clarity</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:80%;background:#F59E0B"></div></div>
+          <div class="metric-val">8.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Tone</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:95%;background:#F59E0B"></div></div>
+          <div class="metric-val">9.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Brand</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:95%;background:#F59E0B"></div></div>
+          <div class="metric-val">9.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Audience fit</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:65%;background:#F59E0B"></div></div>
+          <div class="metric-val">6.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Click impulse</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:80%;background:#F59E0B"></div></div>
+          <div class="metric-val">8.0</div>
+        </div></div>
+        <details class="model-details">
+          <summary>Per-model rationales</summary>
+          
+        <div class="model-row">
+          <div class="model-name">CLAUDE</div>
+          <div class="model-score">8.30</div>
+          <div class="model-rationale">Brand adherence is perfect—textbook execution of the billboard aesthetic with correct color palette and layout. Audience fit is the weakest metric: while scarcity is clear, the ad doesn't explicitly connect to the core insight that internal IT teams can't ship AI, missing an opportunity to speak directly to the founder</div>
+        </div>
+        <div class="model-row">
+          <div class="model-name">GPT</div>
+          <div class="model-score">8.50</div>
+          <div class="model-rationale">Tone alignment is the strongest aspect, perfectly fitting the 'confident, direct' brief. The weakest is audience fit, as while it hints at scarcity and urgency, it could speak more directly to specific pain points of the target audience.</div>
+        </div>
+        </details>
+        <p class="notes">Scarcity through a number. 'left this quarter' adds time pressure without jargon.</p>
+      </div>
+    </article>
+    <article class="card" data-rank="8" data-score="8.325" data-batch="A">
+      <div class="rank-badge">#8</div>
+      <div class="tier-badge" style="background:#F59E0B">Ship with note</div>
+      <div class="batch-badge">A</div>
       <img class="ad-img" src="variants/v01-ref-match.png" alt="Reference match" onclick="zoom(this)">
       <div class="card-body">
         <h3 class="card-title">Reference match</h3>
@@ -407,9 +697,10 @@
         <p class="notes">Matches Paul's reference image 1:1 — baseline.</p>
       </div>
     </article>
-    <article class="card" data-rank="5" data-score="8.325">
-      <div class="rank-badge">#5</div>
+    <article class="card" data-rank="9" data-score="8.325" data-batch="A">
+      <div class="rank-badge">#9</div>
       <div class="tier-badge" style="background:#F59E0B">Ship with note</div>
+      <div class="batch-badge">A</div>
       <img class="ad-img" src="variants/v15-we-ship-you-keep.png" alt="We ship. You keep it." onclick="zoom(this)">
       <div class="card-body">
         <h3 class="card-title">We ship. You keep it.</h3>
@@ -472,9 +763,76 @@
         <p class="notes">Combines IT-bypass with ownership reassurance. Tight and punchy.</p>
       </div>
     </article>
-    <article class="card" data-rank="6" data-score="8.225">
-      <div class="rank-badge">#6</div>
+    <article class="card" data-rank="10" data-score="8.325" data-batch="B">
+      <div class="rank-badge">#10</div>
       <div class="tier-badge" style="background:#F59E0B">Ship with note</div>
+      <div class="batch-badge">B</div>
+      <img class="ad-img" src="variants/v35-vertical-stacked.png" alt="Layout: vertical stacked letters" onclick="zoom(this)">
+      <div class="card-body">
+        <h3 class="card-title">Layout: vertical stacked letters</h3>
+        <p class="card-copy"><span class="main-copy">"Layout: vertical stacked letters"</span> <span class="accent-copy" style="color:#FF7000"></span></p>
+        <div class="scores-row">
+          <div class="score-big">
+            <span class="score-val">8.32</span>
+            <span class="score-lbl">Conservative</span>
+          </div>
+          <div class="score-big">
+            <span class="score-val">8.62</span>
+            <span class="score-lbl">Average</span>
+          </div>
+        </div>
+        <div class="metrics-list">
+        <div class="metric">
+          <div class="metric-label">Readability @ 2s</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:85%;background:#F59E0B"></div></div>
+          <div class="metric-val">8.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Message clarity</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:95%;background:#F59E0B"></div></div>
+          <div class="metric-val">9.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Tone</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:90%;background:#F59E0B"></div></div>
+          <div class="metric-val">9.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Brand</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:100%;background:#F59E0B"></div></div>
+          <div class="metric-val">10.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Audience fit</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:70%;background:#F59E0B"></div></div>
+          <div class="metric-val">7.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Click impulse</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:80%;background:#F59E0B"></div></div>
+          <div class="metric-val">8.0</div>
+        </div></div>
+        <details class="model-details">
+          <summary>Per-model rationales</summary>
+          
+        <div class="model-row">
+          <div class="model-name">CLAUDE</div>
+          <div class="model-score">8.10</div>
+          <div class="model-rationale">Strongest metrics are brand adherence (perfect billboard execution with correct color palette and layout) and message clarity (the offer is instantly clear and unambiguous). Weakest is audience fit—while 'FREE' is prominent and the speed claim is good, the creative doesn't directly address the core insight that these l</div>
+        </div>
+        <div class="model-row">
+          <div class="model-name">GPT</div>
+          <div class="model-score">9.15</div>
+          <div class="model-rationale">The ad excels in brand adherence and message clarity, with a clear offer and on-brand aesthetic. The tone is mostly aligned but slightly less direct. Audience fit is good but could better emphasize leaders' challenges with IT.</div>
+        </div>
+        </details>
+        <p class="notes">F-R-E-E stacked vertically dominates left column. Subtitle reads right. Unusual scan pattern forces attention.</p>
+      </div>
+    </article>
+    <article class="card" data-rank="11" data-score="8.225" data-batch="A">
+      <div class="rank-badge">#11</div>
+      <div class="tier-badge" style="background:#F59E0B">Ship with note</div>
+      <div class="batch-badge">A</div>
       <img class="ad-img" src="variants/v10-adelaide-tag.png" alt="Adelaide sovereignty signal" onclick="zoom(this)">
       <div class="card-body">
         <h3 class="card-title">Adelaide sovereignty signal</h3>
@@ -537,9 +895,10 @@
         <p class="notes">Adds small footer tag signalling AU data sovereignty — relevant for APRA CPS 234 / Privacy Act 2026 audiences without adding scan-weight.</p>
       </div>
     </article>
-    <article class="card" data-rank="7" data-score="8.175">
-      <div class="rank-badge">#7</div>
+    <article class="card" data-rank="12" data-score="8.175" data-batch="A">
+      <div class="rank-badge">#12</div>
       <div class="tier-badge" style="background:#F59E0B">Ship with note</div>
+      <div class="batch-badge">A</div>
       <img class="ad-img" src="variants/v14-stuck-roadmap.png" alt="Stuck in a roadmap" onclick="zoom(this)">
       <div class="card-body">
         <h3 class="card-title">Stuck in a roadmap</h3>
@@ -602,9 +961,76 @@
         <p class="notes">Names enterprise reality — AI projects die in roadmap reviews. Flips to solution. No-one attacked, just the process.</p>
       </div>
     </article>
-    <article class="card" data-rank="8" data-score="8.075">
-      <div class="rank-badge">#8</div>
+    <article class="card" data-rank="13" data-score="8.15" data-batch="B">
+      <div class="rank-badge">#13</div>
       <div class="tier-badge" style="background:#F59E0B">Ship with note</div>
+      <div class="batch-badge">B</div>
+      <img class="ad-img" src="variants/v27-what-if.png" alt="Question: What if you could skip the AI project?" onclick="zoom(this)">
+      <div class="card-body">
+        <h3 class="card-title">Question: What if you could skip the AI project?</h3>
+        <p class="card-copy"><span class="main-copy">"Question: What if you could skip the AI project?"</span> <span class="accent-copy" style="color:#FF7000"></span></p>
+        <div class="scores-row">
+          <div class="score-big">
+            <span class="score-val">8.15</span>
+            <span class="score-lbl">Conservative</span>
+          </div>
+          <div class="score-big">
+            <span class="score-val">8.30</span>
+            <span class="score-lbl">Average</span>
+          </div>
+        </div>
+        <div class="metrics-list">
+        <div class="metric">
+          <div class="metric-label">Readability @ 2s</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:85%;background:#F59E0B"></div></div>
+          <div class="metric-val">8.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Message clarity</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:75%;background:#F59E0B"></div></div>
+          <div class="metric-val">7.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Tone</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:90%;background:#F59E0B"></div></div>
+          <div class="metric-val">9.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Brand</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:100%;background:#F59E0B"></div></div>
+          <div class="metric-val">10.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Audience fit</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:85%;background:#F59E0B"></div></div>
+          <div class="metric-val">8.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Click impulse</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:70%;background:#F59E0B"></div></div>
+          <div class="metric-val">7.0</div>
+        </div></div>
+        <details class="model-details">
+          <summary>Per-model rationales</summary>
+          
+        <div class="model-row">
+          <div class="model-name">CLAUDE</div>
+          <div class="model-score">8.00</div>
+          <div class="model-rationale">Strongest metrics are brand adherence (perfect execution of black/white/orange billboard aesthetic) and audience fit (directly addresses the pain point of leaders who want to skip internal AI project delays). Weakest is click impulse — while the offer is clear, it lacks the magnetic pull of 'free' or scarcity cues that</div>
+        </div>
+        <div class="model-row">
+          <div class="model-name">GPT</div>
+          <div class="model-score">8.60</div>
+          <div class="model-rationale">The ad strongly adheres to brand guidelines with its typographic billboard aesthetic and use of colors, earning a high score in brand adherence. The clarity and readability are also strong, effectively communicating the offer promptly. However, the message could sharpen its call to action to further enhance click-throu</div>
+        </div>
+        </details>
+        <p class="notes">Reframes 'AI project' as a drag you can skip. 'You can' is the resolution.</p>
+      </div>
+    </article>
+    <article class="card" data-rank="14" data-score="8.075" data-batch="A">
+      <div class="rank-badge">#14</div>
+      <div class="tier-badge" style="background:#F59E0B">Ship with note</div>
+      <div class="batch-badge">A</div>
       <img class="ad-img" src="variants/v16-stop-waiting.png" alt="Stop waiting" onclick="zoom(this)">
       <div class="card-body">
         <h3 class="card-title">Stop waiting</h3>
@@ -667,9 +1093,76 @@
         <p class="notes">Shortest-action framing. 'Stop waiting' validates the frustration without blaming IT. Imperative verb drives click.</p>
       </div>
     </article>
-    <article class="card" data-rank="9" data-score="7.925">
-      <div class="rank-badge">#9</div>
+    <article class="card" data-rank="15" data-score="8.075" data-batch="B">
+      <div class="rank-badge">#15</div>
+      <div class="tier-badge" style="background:#F59E0B">Ship with note</div>
+      <div class="batch-badge">B</div>
+      <img class="ad-img" src="variants/v30-giant-free.png" alt="Typography: giant FREE" onclick="zoom(this)">
+      <div class="card-body">
+        <h3 class="card-title">Typography: giant FREE</h3>
+        <p class="card-copy"><span class="main-copy">"Typography: giant FREE"</span> <span class="accent-copy" style="color:#FF7000"></span></p>
+        <div class="scores-row">
+          <div class="score-big">
+            <span class="score-val">8.07</span>
+            <span class="score-lbl">Conservative</span>
+          </div>
+          <div class="score-big">
+            <span class="score-val">8.38</span>
+            <span class="score-lbl">Average</span>
+          </div>
+        </div>
+        <div class="metrics-list">
+        <div class="metric">
+          <div class="metric-label">Readability @ 2s</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:90%;background:#F59E0B"></div></div>
+          <div class="metric-val">9.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Message clarity</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:80%;background:#F59E0B"></div></div>
+          <div class="metric-val">8.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Tone</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:85%;background:#F59E0B"></div></div>
+          <div class="metric-val">8.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Brand</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:100%;background:#F59E0B"></div></div>
+          <div class="metric-val">10.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Audience fit</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:70%;background:#F59E0B"></div></div>
+          <div class="metric-val">7.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Click impulse</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:80%;background:#F59E0B"></div></div>
+          <div class="metric-val">8.0</div>
+        </div></div>
+        <details class="model-details">
+          <summary>Per-model rationales</summary>
+          
+        <div class="model-row">
+          <div class="model-name">CLAUDE</div>
+          <div class="model-score">8.15</div>
+          <div class="model-rationale">Strongest: Brand adherence is perfect—billboard aesthetic, exact color palette, proper logo and CTA placement. Weakest: Audience fit misses the core insight about IT team skepticism; 'FREE' is strong but doesn't speak to the trust/capability pain point that would resonate with this specific leader persona.</div>
+        </div>
+        <div class="model-row">
+          <div class="model-name">GPT</div>
+          <div class="model-score">8.60</div>
+          <div class="model-rationale">The strongest metrics are 'D_brand_adherence' and 'F_ctr_impulse', as the ad strictly follows the brand guidelines and uses strong, enticing words like 'FREE' that create a compelling click impulse. 'B_message_clarity' is slightly weaker, as although the design is straightforward, the small text could obscure the offer</div>
+        </div>
+        </details>
+        <p class="notes">Oversized single word dominates. Tiny paragraph gives full context when they zoom/stop. Works if they only read 'FREE' too.</p>
+      </div>
+    </article>
+    <article class="card" data-rank="16" data-score="7.925" data-batch="A">
+      <div class="rank-badge">#16</div>
       <div class="tier-badge" style="background:#F97316">Fix & rescore</div>
+      <div class="batch-badge">A</div>
       <img class="ad-img" src="variants/v06-ownership.png" alt="Ownership emphasis" onclick="zoom(this)">
       <div class="card-body">
         <h3 class="card-title">Ownership emphasis</h3>
@@ -732,9 +1225,10 @@
         <p class="notes">Defuses vendor-lock-in fear.</p>
       </div>
     </article>
-    <article class="card" data-rank="10" data-score="7.925">
-      <div class="rank-badge">#10</div>
+    <article class="card" data-rank="17" data-score="7.925" data-batch="A">
+      <div class="rank-badge">#17</div>
       <div class="tier-badge" style="background:#F97316">Fix & rescore</div>
+      <div class="batch-badge">A</div>
       <img class="ad-img" src="variants/v12-v07-tightened.png" alt="Pain-point tightened (v07 redesign)" onclick="zoom(this)">
       <div class="card-body">
         <h3 class="card-title">Pain-point tightened (v07 redesign)</h3>
@@ -797,9 +1291,10 @@
         <p class="notes">Tightened v07 — 'shouldn't do' vs 'shouldn't be doing' = 3 fewer chars, faster scan. Same narrative punch.</p>
       </div>
     </article>
-    <article class="card" data-rank="11" data-score="7.85">
-      <div class="rank-badge">#11</div>
+    <article class="card" data-rank="18" data-score="7.85" data-batch="A">
+      <div class="rank-badge">#18</div>
       <div class="tier-badge" style="background:#F97316">Fix & rescore</div>
+      <div class="batch-badge">A</div>
       <img class="ad-img" src="variants/v07-pain-point.png" alt="Pain-point direct" onclick="zoom(this)">
       <div class="card-body">
         <h3 class="card-title">Pain-point direct</h3>
@@ -862,9 +1357,208 @@
         <p class="notes">Echoes Paul's LinkedIn post copy almost verbatim — tightest fit.</p>
       </div>
     </article>
-    <article class="card" data-rank="12" data-score="7.725">
-      <div class="rank-badge">#12</div>
+    <article class="card" data-rank="19" data-score="7.825" data-batch="B">
+      <div class="rank-badge">#19</div>
       <div class="tier-badge" style="background:#F97316">Fix & rescore</div>
+      <div class="batch-badge">B</div>
+      <img class="ad-img" src="variants/v20-hero-zero.png" alt="Hero number: \$0" onclick="zoom(this)">
+      <div class="card-body">
+        <h3 class="card-title">Hero number: \$0</h3>
+        <p class="card-copy"><span class="main-copy">"Hero number: \$0"</span> <span class="accent-copy" style="color:#FF7000"></span></p>
+        <div class="scores-row">
+          <div class="score-big">
+            <span class="score-val">7.83</span>
+            <span class="score-lbl">Conservative</span>
+          </div>
+          <div class="score-big">
+            <span class="score-val">8.32</span>
+            <span class="score-lbl">Average</span>
+          </div>
+        </div>
+        <div class="metrics-list">
+        <div class="metric">
+          <div class="metric-label">Readability @ 2s</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:85%;background:#F97316"></div></div>
+          <div class="metric-val">8.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Message clarity</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:80%;background:#F97316"></div></div>
+          <div class="metric-val">8.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Tone</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:90%;background:#F97316"></div></div>
+          <div class="metric-val">9.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Brand</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:100%;background:#F97316"></div></div>
+          <div class="metric-val">10.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Audience fit</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:70%;background:#F97316"></div></div>
+          <div class="metric-val">7.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Click impulse</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:80%;background:#F97316"></div></div>
+          <div class="metric-val">8.0</div>
+        </div></div>
+        <details class="model-details">
+          <summary>Per-model rationales</summary>
+          
+        <div class="model-row">
+          <div class="model-name">CLAUDE</div>
+          <div class="model-score">7.70</div>
+          <div class="model-rationale">Brand adherence is perfect—exact execution of black/white/orange billboard aesthetic with correct placement of elements. Message clarity and audience fit are weaker: while '$0' is provocative, 'production AI agent' is vague and doesn't connect to the specific pain point that internal IT can't ship AI, missing the strat</div>
+        </div>
+        <div class="model-row">
+          <div class="model-name">GPT</div>
+          <div class="model-score">8.95</div>
+          <div class="model-rationale">The ad excels in brand adherence, as it follows the visual guidelines closely. It also provides instant readability with a clear and compelling message, boasting strong click impulse through its 'free' offer. The tone is aligned well with the brief, but the audience fit could slightly improve by more directly addressin</div>
+        </div>
+        </details>
+        <p class="notes">'$0' is the magnet word turned into the visual anchor. Subtitle gives reason-to-believe.</p>
+      </div>
+    </article>
+    <article class="card" data-rank="20" data-score="7.8" data-batch="B">
+      <div class="rank-badge">#20</div>
+      <div class="tier-badge" style="background:#F97316">Fix & rescore</div>
+      <div class="batch-badge">B</div>
+      <img class="ad-img" src="variants/v24-bento.png" alt="Bento 4-tile" onclick="zoom(this)">
+      <div class="card-body">
+        <h3 class="card-title">Bento 4-tile</h3>
+        <p class="card-copy"><span class="main-copy">"Bento 4-tile"</span> <span class="accent-copy" style="color:#FF7000"></span></p>
+        <div class="scores-row">
+          <div class="score-big">
+            <span class="score-val">7.80</span>
+            <span class="score-lbl">Conservative</span>
+          </div>
+          <div class="score-big">
+            <span class="score-val">7.95</span>
+            <span class="score-lbl">Average</span>
+          </div>
+        </div>
+        <div class="metrics-list">
+        <div class="metric">
+          <div class="metric-label">Readability @ 2s</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:90%;background:#F97316"></div></div>
+          <div class="metric-val">9.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Message clarity</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:80%;background:#F97316"></div></div>
+          <div class="metric-val">8.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Tone</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:85%;background:#F97316"></div></div>
+          <div class="metric-val">8.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Brand</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:65%;background:#F97316"></div></div>
+          <div class="metric-val">6.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Audience fit</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:65%;background:#F97316"></div></div>
+          <div class="metric-val">6.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Click impulse</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:80%;background:#F97316"></div></div>
+          <div class="metric-val">8.0</div>
+        </div></div>
+        <details class="model-details">
+          <summary>Per-model rationales</summary>
+          
+        <div class="model-row">
+          <div class="model-name">CLAUDE</div>
+          <div class="model-score">7.75</div>
+          <div class="model-rationale">Strongest metric is readability — the bold typography and color-blocked layout make the core offer (AI built in 14 days, $0, you keep it) instantly scannable on mobile. Weakest metric is brand adherence: the cyan/teal and yellow blocks violate the specified black + white + orange palette, and the multi-colored tile app</div>
+        </div>
+        <div class="model-row">
+          <div class="model-name">GPT</div>
+          <div class="model-score">8.15</div>
+          <div class="model-rationale">The strongest metrics are readability and click impulse with high visual contrast and compelling phrases like '$0' and 'Apply now.' The weakest is brand adherence, as the layout slightly diverges from a traditional billboard aesthetic.</div>
+        </div>
+        </details>
+        <p class="notes">Bento-box layout familiar from startup landing pages. Mixes statement + number tiles. High visual complexity — risk to readability but strong scroll-stop.</p>
+      </div>
+    </article>
+    <article class="card" data-rank="21" data-score="7.75" data-batch="B">
+      <div class="rank-badge">#21</div>
+      <div class="tier-badge" style="background:#F97316">Fix & rescore</div>
+      <div class="batch-badge">B</div>
+      <img class="ad-img" src="variants/v31-light-mode.png" alt="Color: light mode reverse" onclick="zoom(this)">
+      <div class="card-body">
+        <h3 class="card-title">Color: light mode reverse</h3>
+        <p class="card-copy"><span class="main-copy">"Color: light mode reverse"</span> <span class="accent-copy" style="color:#FF7000"></span></p>
+        <div class="scores-row">
+          <div class="score-big">
+            <span class="score-val">7.75</span>
+            <span class="score-lbl">Conservative</span>
+          </div>
+          <div class="score-big">
+            <span class="score-val">7.75</span>
+            <span class="score-lbl">Average</span>
+          </div>
+        </div>
+        <div class="metrics-list">
+        <div class="metric">
+          <div class="metric-label">Readability @ 2s</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:90%;background:#F97316"></div></div>
+          <div class="metric-val">9.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Message clarity</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:80%;background:#F97316"></div></div>
+          <div class="metric-val">8.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Tone</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:90%;background:#F97316"></div></div>
+          <div class="metric-val">9.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Brand</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:45%;background:#F97316"></div></div>
+          <div class="metric-val">4.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Audience fit</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:65%;background:#F97316"></div></div>
+          <div class="metric-val">6.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Click impulse</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:75%;background:#F97316"></div></div>
+          <div class="metric-val">7.5</div>
+        </div></div>
+        <details class="model-details">
+          <summary>Per-model rationales</summary>
+          
+        <div class="model-row">
+          <div class="model-name">CLAUDE</div>
+          <div class="model-score">7.55</div>
+          <div class="model-rationale">Readability is excellent — three short lines, high contrast, instant parsing. Brand adherence is the weakest metric: the teal/turquoise color deviates significantly from the specified orange (#FF7000), and the background appears light gray rather than pure black, breaking core brand guidelines. Audience fit is moderate</div>
+        </div>
+        <div class="model-row">
+          <div class="model-name">GPT</div>
+          <div class="model-score">7.95</div>
+          <div class="model-rationale">Readability is strong, with a clear and concise message visible quickly. Tone aligns well with the brief, being confident and direct. However, the ad lacks brand adherence, as it does not use the specified color scheme and elements.</div>
+        </div>
+        </details>
+        <p class="notes">White background. Stands out in a LinkedIn feed dominated by dark-mode ads. Teal accent (brand-aligned) not orange.</p>
+      </div>
+    </article>
+    <article class="card" data-rank="22" data-score="7.725" data-batch="A">
+      <div class="rank-badge">#22</div>
+      <div class="tier-badge" style="background:#F97316">Fix & rescore</div>
+      <div class="batch-badge">A</div>
       <img class="ad-img" src="variants/v02-paul-primary.png" alt="Paul's recommended primary" onclick="zoom(this)">
       <div class="card-body">
         <h3 class="card-title">Paul's recommended primary</h3>
@@ -927,9 +1621,10 @@
         <p class="notes">Paul's recommended headline verbatim.</p>
       </div>
     </article>
-    <article class="card" data-rank="13" data-score="7.725">
-      <div class="rank-badge">#13</div>
+    <article class="card" data-rank="23" data-score="7.725" data-batch="A">
+      <div class="rank-badge">#23</div>
       <div class="tier-badge" style="background:#F97316">Fix & rescore</div>
+      <div class="batch-badge">A</div>
       <img class="ad-img" src="variants/v09-accent-own-line.png" alt="Accent on own line (max readability)" onclick="zoom(this)">
       <div class="card-body">
         <h3 class="card-title">Accent on own line (max readability)</h3>
@@ -992,9 +1687,10 @@
         <p class="notes">Same copy as v02 but renders accent on its own line with EXTRA vertical separation — max 2s readability test.</p>
       </div>
     </article>
-    <article class="card" data-rank="14" data-score="7.5">
-      <div class="rank-badge">#14</div>
+    <article class="card" data-rank="24" data-score="7.5" data-batch="A">
+      <div class="rank-badge">#24</div>
       <div class="tier-badge" style="background:#F97316">Fix & rescore</div>
+      <div class="batch-badge">A</div>
       <img class="ad-img" src="variants/v08-it-softer.png" alt="IT softer" onclick="zoom(this)">
       <div class="card-body">
         <h3 class="card-title">IT softer</h3>
@@ -1057,9 +1753,76 @@
         <p class="notes">Softer version of v03 — 'most' reduces outright insult.</p>
       </div>
     </article>
-    <article class="card" data-rank="15" data-score="7.375">
-      <div class="rank-badge">#15</div>
+    <article class="card" data-rank="25" data-score="7.4" data-batch="B">
+      <div class="rank-badge">#25</div>
       <div class="tier-badge" style="background:#EF4444">Redesign</div>
+      <div class="batch-badge">B</div>
+      <img class="ad-img" src="variants/v29-diagonal.png" alt="Typography: diagonal" onclick="zoom(this)">
+      <div class="card-body">
+        <h3 class="card-title">Typography: diagonal</h3>
+        <p class="card-copy"><span class="main-copy">"Typography: diagonal"</span> <span class="accent-copy" style="color:#FF7000"></span></p>
+        <div class="scores-row">
+          <div class="score-big">
+            <span class="score-val">7.40</span>
+            <span class="score-lbl">Conservative</span>
+          </div>
+          <div class="score-big">
+            <span class="score-val">7.90</span>
+            <span class="score-lbl">Average</span>
+          </div>
+        </div>
+        <div class="metrics-list">
+        <div class="metric">
+          <div class="metric-label">Readability @ 2s</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:85%;background:#EF4444"></div></div>
+          <div class="metric-val">8.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Message clarity</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:80%;background:#EF4444"></div></div>
+          <div class="metric-val">8.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Tone</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:85%;background:#EF4444"></div></div>
+          <div class="metric-val">8.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Brand</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:95%;background:#EF4444"></div></div>
+          <div class="metric-val">9.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Audience fit</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:60%;background:#EF4444"></div></div>
+          <div class="metric-val">6.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Click impulse</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:70%;background:#EF4444"></div></div>
+          <div class="metric-val">7.0</div>
+        </div></div>
+        <details class="model-details">
+          <summary>Per-model rationales</summary>
+          
+        <div class="model-row">
+          <div class="model-name">CLAUDE</div>
+          <div class="model-score">7.40</div>
+          <div class="model-rationale">Brand adherence is perfect—exact color palette, typography, layout per brief. Strongest weakness is audience fit: 'Your AI. Built free' doesn't speak to the core insight that leaders don't trust their IT team to ship AI, and 'Your AI' is vague about what problem it solves for ops leaders. Click impulse is moderate—'fre</div>
+        </div>
+        <div class="model-row">
+          <div class="model-name">GPT</div>
+          <div class="model-score">8.40</div>
+          <div class="model-rationale">The strongest metrics are readability and message clarity, as the core offer 'Built free' is instantly clear and visually emphasized. The weakest is audience fit, as it could more directly address the specific pain points of executives doubting IT's ability to deliver AI solutions.</div>
+        </div>
+        </details>
+        <p class="notes">-12deg rotation. Breaks the LinkedIn feed's rectilinear rhythm.</p>
+      </div>
+    </article>
+    <article class="card" data-rank="26" data-score="7.375" data-batch="A">
+      <div class="rank-badge">#26</div>
+      <div class="tier-badge" style="background:#EF4444">Redesign</div>
+      <div class="batch-badge">A</div>
       <img class="ad-img" src="variants/v03-paul-ab-alt.png" alt="Paul's A/B alt" onclick="zoom(this)">
       <div class="card-body">
         <h3 class="card-title">Paul's A/B alt</h3>
@@ -1122,9 +1885,10 @@
         <p class="notes">Sharpest anti-IT provocation — Paul's A/B alt.</p>
       </div>
     </article>
-    <article class="card" data-rank="16" data-score="7.35">
-      <div class="rank-badge">#16</div>
+    <article class="card" data-rank="27" data-score="7.35" data-batch="A">
+      <div class="rank-badge">#27</div>
       <div class="tier-badge" style="background:#EF4444">Redesign</div>
+      <div class="batch-badge">A</div>
       <img class="ad-img" src="variants/v17-dont-wait-on-it.png" alt="Don't wait on IT (imperative IT signal)" onclick="zoom(this)">
       <div class="card-body">
         <h3 class="card-title">Don't wait on IT (imperative IT signal)</h3>
@@ -1187,9 +1951,208 @@
         <p class="notes">Imperative IT signal without the accusation of v03. 'Don't wait on IT' = you the leader, not the attack on them. Tests whether audience-fit boost is possible without tone penalty.</p>
       </div>
     </article>
-    <article class="card" data-rank="17" data-score="7.05">
-      <div class="rank-badge">#17</div>
+    <article class="card" data-rank="28" data-score="7.275" data-batch="B">
+      <div class="rank-badge">#28</div>
       <div class="tier-badge" style="background:#EF4444">Redesign</div>
+      <div class="batch-badge">B</div>
+      <img class="ad-img" src="variants/v32-gradient.png" alt="Color: gradient hero" onclick="zoom(this)">
+      <div class="card-body">
+        <h3 class="card-title">Color: gradient hero</h3>
+        <p class="card-copy"><span class="main-copy">"Color: gradient hero"</span> <span class="accent-copy" style="color:#FF7000"></span></p>
+        <div class="scores-row">
+          <div class="score-big">
+            <span class="score-val">7.28</span>
+            <span class="score-lbl">Conservative</span>
+          </div>
+          <div class="score-big">
+            <span class="score-val">7.28</span>
+            <span class="score-lbl">Average</span>
+          </div>
+        </div>
+        <div class="metrics-list">
+        <div class="metric">
+          <div class="metric-label">Readability @ 2s</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:90%;background:#EF4444"></div></div>
+          <div class="metric-val">9.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Message clarity</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:75%;background:#EF4444"></div></div>
+          <div class="metric-val">7.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Tone</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:85%;background:#EF4444"></div></div>
+          <div class="metric-val">8.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Brand</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:30%;background:#EF4444"></div></div>
+          <div class="metric-val">3.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Audience fit</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:65%;background:#EF4444"></div></div>
+          <div class="metric-val">6.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Click impulse</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:65%;background:#EF4444"></div></div>
+          <div class="metric-val">6.5</div>
+        </div></div>
+        <details class="model-details">
+          <summary>Per-model rationales</summary>
+          
+        <div class="model-row">
+          <div class="model-name">CLAUDE</div>
+          <div class="model-score">7.10</div>
+          <div class="model-rationale">Readability is excellent — large, bold typography with strong hierarchy makes the message instantly scannable on mobile. Brand adherence is the weakest metric: the background is teal/green gradient (not pure black), and while orange is present, it's not the specified #FF7000, violating core brand requirements. Audience</div>
+        </div>
+        <div class="model-row">
+          <div class="model-name">GPT</div>
+          <div class="model-score">7.45</div>
+          <div class="model-rationale">The ad is quickly readable and the message is clear with a strong tone alignment to being direct. However, it does not adhere to brand guidelines due to the background color deviation. A good audience fit and click impulse are present, but refinement is needed.</div>
+        </div>
+        </details>
+        <p class="notes">Navy→teal→orange gradient evokes modern SaaS brands. Yellow accent for 'You keep it.' adds contrast. Moody + distinct.</p>
+      </div>
+    </article>
+    <article class="card" data-rank="29" data-score="7.25" data-batch="B">
+      <div class="rank-badge">#29</div>
+      <div class="tier-badge" style="background:#EF4444">Redesign</div>
+      <div class="batch-badge">B</div>
+      <img class="ad-img" src="variants/v23-triptych.png" alt="Triptych horizontal" onclick="zoom(this)">
+      <div class="card-body">
+        <h3 class="card-title">Triptych horizontal</h3>
+        <p class="card-copy"><span class="main-copy">"Triptych horizontal"</span> <span class="accent-copy" style="color:#FF7000"></span></p>
+        <div class="scores-row">
+          <div class="score-big">
+            <span class="score-val">7.25</span>
+            <span class="score-lbl">Conservative</span>
+          </div>
+          <div class="score-big">
+            <span class="score-val">7.80</span>
+            <span class="score-lbl">Average</span>
+          </div>
+        </div>
+        <div class="metrics-list">
+        <div class="metric">
+          <div class="metric-label">Readability @ 2s</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:90%;background:#EF4444"></div></div>
+          <div class="metric-val">9.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Message clarity</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:75%;background:#EF4444"></div></div>
+          <div class="metric-val">7.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Tone</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:90%;background:#EF4444"></div></div>
+          <div class="metric-val">9.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Brand</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:60%;background:#EF4444"></div></div>
+          <div class="metric-val">6.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Audience fit</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:65%;background:#EF4444"></div></div>
+          <div class="metric-val">6.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Click impulse</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:75%;background:#EF4444"></div></div>
+          <div class="metric-val">7.5</div>
+        </div></div>
+        <details class="model-details">
+          <summary>Per-model rationales</summary>
+          
+        <div class="model-row">
+          <div class="model-name">CLAUDE</div>
+          <div class="model-score">7.15</div>
+          <div class="model-rationale">Readability is exceptional—three numbers with labels parse instantly on mobile with perfect contrast and hierarchy. Brand adherence is weakest: cyan and yellow violate the black/white/orange palette specified in the brief, breaking the billboard aesthetic. Audience fit underperforms because the ad shows the deal mechan</div>
+        </div>
+        <div class="model-row">
+          <div class="model-name">GPT</div>
+          <div class="model-score">8.45</div>
+          <div class="model-rationale">The strongest metric is A_readability_phone_2s as the message is clear and immediate. The weakest metric is D_brand_adherence due to the use of additional colors (teal and yellow) that slightly deviate from the brand's strict color guidelines.</div>
+        </div>
+        </details>
+        <p class="notes">Landscape layout with three columns. Magazine-style data panel.</p>
+      </div>
+    </article>
+    <article class="card" data-rank="30" data-score="7.225" data-batch="B">
+      <div class="rank-badge">#30</div>
+      <div class="tier-badge" style="background:#EF4444">Redesign</div>
+      <div class="batch-badge">B</div>
+      <img class="ad-img" src="variants/v36-negative-space.png" alt="Layout: negative space stamp" onclick="zoom(this)">
+      <div class="card-body">
+        <h3 class="card-title">Layout: negative space stamp</h3>
+        <p class="card-copy"><span class="main-copy">"Layout: negative space stamp"</span> <span class="accent-copy" style="color:#FF7000"></span></p>
+        <div class="scores-row">
+          <div class="score-big">
+            <span class="score-val">7.22</span>
+            <span class="score-lbl">Conservative</span>
+          </div>
+          <div class="score-big">
+            <span class="score-val">7.90</span>
+            <span class="score-lbl">Average</span>
+          </div>
+        </div>
+        <div class="metrics-list">
+        <div class="metric">
+          <div class="metric-label">Readability @ 2s</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:75%;background:#EF4444"></div></div>
+          <div class="metric-val">7.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Message clarity</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:75%;background:#EF4444"></div></div>
+          <div class="metric-val">7.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Tone</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:90%;background:#EF4444"></div></div>
+          <div class="metric-val">9.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Brand</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:100%;background:#EF4444"></div></div>
+          <div class="metric-val">10.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Audience fit</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:65%;background:#EF4444"></div></div>
+          <div class="metric-val">6.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Click impulse</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:80%;background:#EF4444"></div></div>
+          <div class="metric-val">8.0</div>
+        </div></div>
+        <details class="model-details">
+          <summary>Per-model rationales</summary>
+          
+        <div class="model-row">
+          <div class="model-name">CLAUDE</div>
+          <div class="model-score">7.35</div>
+          <div class="model-rationale">Brand adherence is perfect—pure billboard aesthetic with exact color palette and layout. Message clarity and audience fit are the weakest points: 'You keep the code' is confusing (the brief says they keep the agent, not code), and there's no connection to the core audience insight about IT teams unable to ship AI.</div>
+        </div>
+        <div class="model-row">
+          <div class="model-name">GPT</div>
+          <div class="model-score">8.45</div>
+          <div class="model-rationale">The ad variant excels in brand adherence and message clarity, with a strong focus on the word 'FREE' and a clearly visible CTA, making it largely in line with the brief. The weakest area is readability on mobile, where slight improvements could enhance instant comprehension.</div>
+        </div>
+        </details>
+        <p class="notes">Mostly empty frame with small stamp bottom-right. Contrarian use of white space. Reads as premium/quiet — the antithesis of the usual loud LinkedIn ad.</p>
+      </div>
+    </article>
+    <article class="card" data-rank="31" data-score="7.05" data-batch="A">
+      <div class="rank-badge">#31</div>
+      <div class="tier-badge" style="background:#EF4444">Redesign</div>
+      <div class="batch-badge">A</div>
       <img class="ad-img" src="variants/v11-teal-accent.png" alt="Teal accent (brand alignment test)" onclick="zoom(this)">
       <div class="card-body">
         <h3 class="card-title">Teal accent (brand alignment test)</h3>
@@ -1252,9 +2215,76 @@
         <p class="notes">Tests teal accent (.io site primary) instead of orange. Brand-palette alignment with live site but may lose attention vs orange. A/B candidate week 2+.</p>
       </div>
     </article>
-    <article class="card" data-rank="18" data-score="6.6">
-      <div class="rank-badge">#18</div>
+    <article class="card" data-rank="32" data-score="6.8" data-batch="B">
+      <div class="rank-badge">#32</div>
       <div class="tier-badge" style="background:#EF4444">Redesign</div>
+      <div class="batch-badge">B</div>
+      <img class="ad-img" src="variants/v34-split-screen.png" alt="Layout: split-screen" onclick="zoom(this)">
+      <div class="card-body">
+        <h3 class="card-title">Layout: split-screen</h3>
+        <p class="card-copy"><span class="main-copy">"Layout: split-screen"</span> <span class="accent-copy" style="color:#FF7000"></span></p>
+        <div class="scores-row">
+          <div class="score-big">
+            <span class="score-val">6.80</span>
+            <span class="score-lbl">Conservative</span>
+          </div>
+          <div class="score-big">
+            <span class="score-val">7.85</span>
+            <span class="score-lbl">Average</span>
+          </div>
+        </div>
+        <div class="metrics-list">
+        <div class="metric">
+          <div class="metric-label">Readability @ 2s</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:85%;background:#EF4444"></div></div>
+          <div class="metric-val">8.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Message clarity</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:65%;background:#EF4444"></div></div>
+          <div class="metric-val">6.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Tone</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:95%;background:#EF4444"></div></div>
+          <div class="metric-val">9.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Brand</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:90%;background:#EF4444"></div></div>
+          <div class="metric-val">9.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Audience fit</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:70%;background:#EF4444"></div></div>
+          <div class="metric-val">7.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Click impulse</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:70%;background:#EF4444"></div></div>
+          <div class="metric-val">7.0</div>
+        </div></div>
+        <details class="model-details">
+          <summary>Per-model rationales</summary>
+          
+        <div class="model-row">
+          <div class="model-name">CLAUDE</div>
+          <div class="model-score">6.80</div>
+          <div class="model-rationale">Brand adherence is perfect—clean billboard aesthetic with exact color palette and layout. Message clarity is the critical weakness: 'unstick it' is vague and doesn't communicate what's being offered (a free AI agent built in 14 days). The pain point 'stuck AI project' resonates somewhat with the audience, but lacks the</div>
+        </div>
+        <div class="model-row">
+          <div class="model-name">GPT</div>
+          <div class="model-score">8.90</div>
+          <div class="model-rationale">The strongest metric is tone alignment, as it perfectly fits the brief with confident and direct messaging. The weakest is brand adherence due to minor deviations in the background color that might affect the pure black requirement.</div>
+        </div>
+        </details>
+        <p class="notes">Navy problem / orange solution. Instantly parseable — two halves, two sentences, two colors.</p>
+      </div>
+    </article>
+    <article class="card" data-rank="33" data-score="6.6" data-batch="A">
+      <div class="rank-badge">#33</div>
+      <div class="tier-badge" style="background:#EF4444">Redesign</div>
+      <div class="batch-badge">A</div>
       <img class="ad-img" src="variants/v18-minimal-triplet.png" alt="Minimal triplet" onclick="zoom(this)">
       <div class="card-body">
         <h3 class="card-title">Minimal triplet</h3>
@@ -1317,11 +2347,209 @@
         <p class="notes">Three atomic facts on three lines. Maximum readability at phone speed. Tests whether ultra-minimalism beats message-richer headlines.</p>
       </div>
     </article>
+    <article class="card" data-rank="34" data-score="6.575" data-batch="B">
+      <div class="rank-badge">#34</div>
+      <div class="tier-badge" style="background:#EF4444">Redesign</div>
+      <div class="batch-badge">B</div>
+      <img class="ad-img" src="variants/v33-triangles.png" alt="Color: brand triangles bg" onclick="zoom(this)">
+      <div class="card-body">
+        <h3 class="card-title">Color: brand triangles bg</h3>
+        <p class="card-copy"><span class="main-copy">"Color: brand triangles bg"</span> <span class="accent-copy" style="color:#FF7000"></span></p>
+        <div class="scores-row">
+          <div class="score-big">
+            <span class="score-val">6.58</span>
+            <span class="score-lbl">Conservative</span>
+          </div>
+          <div class="score-big">
+            <span class="score-val">7.12</span>
+            <span class="score-lbl">Average</span>
+          </div>
+        </div>
+        <div class="metrics-list">
+        <div class="metric">
+          <div class="metric-label">Readability @ 2s</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:70%;background:#EF4444"></div></div>
+          <div class="metric-val">7.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Message clarity</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:80%;background:#EF4444"></div></div>
+          <div class="metric-val">8.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Tone</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:85%;background:#EF4444"></div></div>
+          <div class="metric-val">8.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Brand</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:40%;background:#EF4444"></div></div>
+          <div class="metric-val">4.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Audience fit</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:65%;background:#EF4444"></div></div>
+          <div class="metric-val">6.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Click impulse</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:75%;background:#EF4444"></div></div>
+          <div class="metric-val">7.5</div>
+        </div></div>
+        <details class="model-details">
+          <summary>Per-model rationales</summary>
+          
+        <div class="model-row">
+          <div class="model-name">CLAUDE</div>
+          <div class="model-score">7.40</div>
+          <div class="model-rationale">Message clarity is the strongest metric — the offer is instantly clear and benefits-forward. Brand adherence is the critical failure: the background uses complex gradients and geometric shapes instead of pure black, violating the core billboard aesthetic. Audience fit is mediocre because while 'free' and '14 days' are </div>
+        </div>
+        <div class="model-row">
+          <div class="model-name">GPT</div>
+          <div class="model-score">6.85</div>
+          <div class="model-rationale">The ad's strongest point is its tone alignment, confidently presenting a clear offer. However, its visual contrast and clutter with the background colors impact readability and brand adherence, slightly lowering effectiveness.</div>
+        </div>
+        </details>
+        <p class="notes">Uses the Adaptation AI logo's geometric triangle motif as pattern background. Strong brand anchor.</p>
+      </div>
+    </article>
+    <article class="card" data-rank="35" data-score="6.475" data-batch="B">
+      <div class="rank-badge">#35</div>
+      <div class="tier-badge" style="background:#EF4444">Redesign</div>
+      <div class="batch-badge">B</div>
+      <img class="ad-img" src="variants/v28-serif-sans.png" alt="Typography: serif + sans" onclick="zoom(this)">
+      <div class="card-body">
+        <h3 class="card-title">Typography: serif + sans</h3>
+        <p class="card-copy"><span class="main-copy">"Typography: serif + sans"</span> <span class="accent-copy" style="color:#FF7000"></span></p>
+        <div class="scores-row">
+          <div class="score-big">
+            <span class="score-val">6.47</span>
+            <span class="score-lbl">Conservative</span>
+          </div>
+          <div class="score-big">
+            <span class="score-val">7.33</span>
+            <span class="score-lbl">Average</span>
+          </div>
+        </div>
+        <div class="metrics-list">
+        <div class="metric">
+          <div class="metric-label">Readability @ 2s</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:90%;background:#EF4444"></div></div>
+          <div class="metric-val">9.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Message clarity</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:60%;background:#EF4444"></div></div>
+          <div class="metric-val">6.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Tone</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:85%;background:#EF4444"></div></div>
+          <div class="metric-val">8.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Brand</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:95%;background:#EF4444"></div></div>
+          <div class="metric-val">9.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Audience fit</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:50%;background:#EF4444"></div></div>
+          <div class="metric-val">5.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Click impulse</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:60%;background:#EF4444"></div></div>
+          <div class="metric-val">6.0</div>
+        </div></div>
+        <details class="model-details">
+          <summary>Per-model rationales</summary>
+          
+        <div class="model-row">
+          <div class="model-name">CLAUDE</div>
+          <div class="model-score">6.45</div>
+          <div class="model-rationale">Brand adherence is flawless — perfect billboard typography, color palette, and layout. Message clarity and audience fit are the weakest metrics: 'Your AI agent, Shipped.' doesn't communicate what's being offered (free custom build, 14 days, keep the agent) and doesn't speak to the core insight that internal IT teams ca</div>
+        </div>
+        <div class="model-row">
+          <div class="model-name">GPT</div>
+          <div class="model-score">8.20</div>
+          <div class="model-rationale">The strongest metric is tone alignment, with a clear and confident message. Brand adherence is also high with strong use of colors and placement. Audience fit and click impulse could be improved by clearer targeting and highlighting the offer explicitly.</div>
+        </div>
+        </details>
+        <p class="notes">Italic Playfair Display serif + massive Inter 900 sans. Visual pacing mismatch — draws attention because it looks editorial, not ad-like.</p>
+      </div>
+    </article>
+    <article class="card" data-rank="36" data-score="6.25" data-batch="B">
+      <div class="rank-badge">#36</div>
+      <div class="tier-badge" style="background:#EF4444">Redesign</div>
+      <div class="batch-badge">B</div>
+      <img class="ad-img" src="variants/v22-stat-stack.png" alt="Stat stack vertical" onclick="zoom(this)">
+      <div class="card-body">
+        <h3 class="card-title">Stat stack vertical</h3>
+        <p class="card-copy"><span class="main-copy">"Stat stack vertical"</span> <span class="accent-copy" style="color:#FF7000"></span></p>
+        <div class="scores-row">
+          <div class="score-big">
+            <span class="score-val">6.25</span>
+            <span class="score-lbl">Conservative</span>
+          </div>
+          <div class="score-big">
+            <span class="score-val">7.35</span>
+            <span class="score-lbl">Average</span>
+          </div>
+        </div>
+        <div class="metrics-list">
+        <div class="metric">
+          <div class="metric-label">Readability @ 2s</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:75%;background:#EF4444"></div></div>
+          <div class="metric-val">7.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Message clarity</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:75%;background:#EF4444"></div></div>
+          <div class="metric-val">7.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Tone</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:85%;background:#EF4444"></div></div>
+          <div class="metric-val">8.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Brand</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:60%;background:#EF4444"></div></div>
+          <div class="metric-val">6.0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Audience fit</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:65%;background:#EF4444"></div></div>
+          <div class="metric-val">6.5</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Click impulse</div>
+          <div class="metric-bar"><div class="metric-fill" style="width:75%;background:#EF4444"></div></div>
+          <div class="metric-val">7.5</div>
+        </div></div>
+        <details class="model-details">
+          <summary>Per-model rationales</summary>
+          
+        <div class="model-row">
+          <div class="model-name">CLAUDE</div>
+          <div class="model-score">8.60</div>
+          <div class="model-rationale">Strongest metrics are message clarity and tone alignment—the three-line structure instantly communicates the offer with zero fluff, perfect billboard execution. Weakest is brand adherence: cyan/teal and yellow break the specified black+white+orange palette, and the logo placement differs from the brief's bottom-left sp</div>
+        </div>
+        <div class="model-row">
+          <div class="model-name">GPT</div>
+          <div class="model-score">6.10</div>
+          <div class="model-rationale">The ad's strongest metric is tone alignment, adhering closely to the brief's confident and direct style. The weakest metric is message clarity; while specific elements like '10 companies' and '$0 you pay' are clear, the overall offer might be ambiguous at a glance.</div>
+        </div>
+        </details>
+        <p class="notes">Three atomic facts, each on its own line, each a different brand color. Fast scan — brain parses 3 chunks instantly.</p>
+      </div>
+    </article>
       </div>
     </section>
 
     <footer>
-      Adaptation AI · LinkedIn ad creative review · Password-gated · 2026-04-21 13:40:44
+      Adaptation AI · LinkedIn ad creative review · Password-gated · 2026-04-21 14:04:58
     </footer>
   </main>
 
@@ -1357,6 +2585,20 @@
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') document.getElementById('zoom-overlay').style.display = 'none';
     });
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.card').forEach(c => {
+        const batch = c.dataset.batch;
+        const rank = parseInt(c.dataset.rank);
+        let show = true;
+        if (f === 'A') show = batch === 'A';
+        else if (f === 'B') show = batch === 'B';
+        else if (f === 'top') show = rank <= 10;
+        c.style.display = show ? '' : 'none';
+      });
+    }));
   </script>
 </body>
 </html>
